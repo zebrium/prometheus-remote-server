@@ -1,0 +1,55 @@
+# This is config file for stats server process.
+# Config name is like <module>.<config_name>
+# Config value can be either strings or ints.
+{
+    # stats server, should it run?
+    "stats.enabled" : 1,
+
+    # stats server, should it use https?
+    "stats.https_enabled" : 0,
+
+    # stats, HTTPS port to list for requests.
+    "stats.http_port" : 9905,
+
+    # stats, location of stingest host.
+    "stats.stingest_host" : "localhost",
+
+    # stats, port of stingest host.
+    "stats.stingest_port" : 5300,
+
+    # stats, timeout for requests to stingest.
+    "stats.stingest_timeout": 360,
+
+    # stats, keep temporary files?
+    "stats.keep_tmp_files" : 0,
+
+    # stats, max number of requests to be processed at a time
+    "stats.reqs_max" : 16,
+
+    # Request directory, where we store the incoming requests for processing.
+    "stats.reqs_dir" : "/tmp/stats/reqs",
+
+    # serializer queue depth: number of web requests to process concurrently.
+    "stats.serializer_qd" : 10,
+
+    # zvcacher, Samples older than this are aged automatically (low water mark threshold).
+    "zvcacher.drop_after_secs_lw" : 600,
+
+    # zvcacher, Samples older than this are aged automatically (high water mark threshold).
+    "zvcacher.drop_after_secs_hw" : 120,
+
+    # zvcacher, Number of instances after which we drop cache entries aggressively.
+    "zvcacher.cache_entries_high_wmark" : 50000,
+
+    # zvcacher, Number of instances below this, we do NOT drop cache entries aggressively.
+    "zvcacher.cache_entries_low_wmark" : 10000,
+
+    # zvcacher, Number of buckets in cache.
+    "zvcacher.cache_bkts" : 10000,
+
+    # bridger, Should we notify requests to the stingest process?
+    "bridger.notify_stingest" : 0,
+
+    # bridger, Max stingests to submit in parallel.
+    "bridger.stingests_qd" : 512
+}

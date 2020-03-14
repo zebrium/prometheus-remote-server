@@ -1,0 +1,71 @@
+// Copyright (c) 2018 Zebrium, Inc.
+
+syntax = "proto3";
+
+package stingestproto;
+
+enum StatsIngestRequestStatus {
+    STINGEST_REQ_STATUS_UNKNOWN = 0;
+    STINGEST_REQ_STATUS_QUEUED = 1;
+    STINGEST_REQ_STATUS_ACTIVE = 2;
+}
+
+message StatsIngestRequest {
+    string                  Account = 1;    // Name of the the account.
+    string                  DFpath = 2;     // Data file path.
+    string                  MFpath = 3;     // Metadata file path.
+    string                  InstanceId = 4; // Unique instance id per account.
+    string                  Type = 5;       // Type of the file. eg: "prometheus"
+    int64                   DTs = 6;        // Default mepoch to use.
+    StatsIngestRequestStatus Status = 7;    // Status of request.
+    int64                   Epoch = 8;      // Ingest epoch
+}
+
+enum StatsIngestErrorCode {
+    OK = 0;                         // Success.
+    STINGEST_FAILED = 1;            // Ingest failed.
+    STINVALID_REQ = 2;              // Invalid request.
+    STNOT_READY = 3;                // Not ready to accept requests
+}
+
+message StatsIngestResponse {
+    StatsIngestErrorCode Err = 1;        // Error code.
+}
+
+message StatsFlushRequest {
+    string                  Account = 1;    // Name of the account to flush.
+}
+
+enum StatsFlushErrorCode {
+    STFLUSH_OK = 0;                         // Success.
+    STFLUSH_FAILED = 1;            // Flush failed.
+}
+
+message StatsFlushResponse {
+    StatsFlushErrorCode Err = 1;        // Error code.
+}
+
+message StatsIngestStatusRequest {
+    string                Account = 1;  // Name of account to query status for (optional)
+}
+
+enum StatsIngestStatusErrorCode {
+    STSTATUS_OK = 0;
+    STSTATUS_FAILED = 1;
+}
+
+
+message StatsIngestStatusResponse {
+    repeated StatsIngestRequest Requests = 1;  // Requests
+    StatsIngestStatusErrorCode  Err = 2;       // Error code.
+}
+
+// APIs exported by StatsIngestSvc.
+service StatsIngestSvc {
+    // StatsIngest API
+    rpc Ingest (StatsIngestRequest) returns (StatsIngestResponse) {}
+    // StatsFlush API
+    rpc Flush (StatsFlushRequest) returns (StatsFlushResponse) {}
+    // StatsStatus API
+    rpc IngestStatus (StatsIngestStatusRequest) returns (StatsIngestStatusResponse) {}
+}
