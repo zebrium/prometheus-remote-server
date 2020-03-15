@@ -65,7 +65,7 @@ $ ls  /tmp/stats/reqs/Zebrium/192.168.120.51_9100.prometheus/1584152555489133
 ```
 As you can see, it has two files: json and data.gz file. 
 
-***json file***: has the metadata and labels that are common for all the samples in this scrape.
+**json file**: has the metadata and labels that are common for all the samples in this scrape.
 ```
 $ python3 -m json.tool < /tmp/stats/reqs/Zebrium/192.168.120.51_9100.prometheus/1584152555489133/1584152555489133.json 
 {
@@ -118,7 +118,7 @@ This json file contains :
 * dts: default time stamp in epoch. This is the default timestamp to use, if there is not timestamp inside a sample of data.gz file.
 * olabels : there are optional labels, that can be safely ignored for ML/AI purpose.
 
-*data.gz* file:
+**data.gz** file:
 ```
 zcat /tmp/stats/reqs/Zebrium/192.168.120.51_9100.prometheus/1584152555489133/1584152555489133.data.gz | head -15
 # HELP go_gc_duration_seconds A summary of the GC invocation durations.
