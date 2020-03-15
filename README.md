@@ -42,6 +42,7 @@ The above will generate a binary named ${GOPATH}/src/zebrium.com/stserver/stserv
 * stats.reqs_dir: Directory, where to store the prometheus plain stats text files.
 * stats.http_port: Port to listen for incoming HTTP requests.
 * stats.https_enabled: Is HTTPS enabled?
+* bridger.notify_stingest: Is set to 0. It does NOT notify with GRPC for further processing. If set to 1, it sends GRPC to the address mentioned in config file with stats.stingest_host + stats.stingest_port value.
 
 One can run this server as follows:
 
