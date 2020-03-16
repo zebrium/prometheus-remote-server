@@ -76,11 +76,11 @@ $ python3 -m json.tool < /tmp/stats/reqs/Zebrium/192.168.120.51_9100.prometheus/
     "kvs": [
         {
             "key": "zid_host",
-            "value": "anil-host1"
+            "value": "zhost"
         },
         {
             "key": "zid_pod_name",
-            "value": "anil-pod1"
+            "value": "zpod"
         },
         {
             "key": "instance",
@@ -88,11 +88,11 @@ $ python3 -m json.tool < /tmp/stats/reqs/Zebrium/192.168.120.51_9100.prometheus/
         },
         {
             "key": "container_name",
-            "value": "anil-container1"
+            "value": "test-container"
         },
         {
             "key": "host",
-            "value": "anil-host1"
+            "value": "zhost"
         },
         {
             "key": "job",
@@ -100,7 +100,7 @@ $ python3 -m json.tool < /tmp/stats/reqs/Zebrium/192.168.120.51_9100.prometheus/
         },
         {
             "key": "zid_container_name",
-            "value": "anil"
+            "value": "testcontainer"
         }
     ],
     "dts": 1584152545363,
