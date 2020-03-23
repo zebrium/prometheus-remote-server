@@ -142,7 +142,7 @@ This data.gz file contains samples as if we scraped the data from the target loc
 
 ## More information
 
-  * Link to zebrium Blog: TODO 
+  * Check out our [Blog](https://www.zebrium.com/blog/a-prometheus-fork-for-efficient-cloud-scale-autonomous-monitoring) 
 
 ## License
 
